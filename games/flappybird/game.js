@@ -11,7 +11,7 @@ let highScore = Number(localStorage.getItem("flappyHighScore")) || 0;
 highScoreText.textContent = `Best: ${highScore}`;
 
 const pipeBottomImg = new Image();
-pipeBottomImg.src = "assets/pipeBottom.png";
+pipeBottomImg.src = "assets/pipebottom.png";
 
 const scoreText = document.getElementById("score");
 const startBtn = document.getElementById("startBtn");
