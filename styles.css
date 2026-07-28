@@ -1,5 +1,5 @@
-@import "root.css";
-@import "popups.css";
+@import "./root.css";
+@import "./popups.css";
 
 body {
     background: var(--bg);
