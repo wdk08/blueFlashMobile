@@ -1,0 +1,138 @@
+@import "/root.css";
+@import "/popups.css";
+
+body {
+    background: var(--bg);
+    font-family: var(--font);
+    margin: 0;
+}
+
+.sechead {
+    color:var(--text);
+}
+
+.header {
+    color:var(--text);
+}
+
+#games {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.game {
+    background: var(--card);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: transform .15s ease;
+}
+
+.game:hover {
+    transform: translateY(-3px);
+}
+
+.gameimg {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gametitle {
+    color: var(--text);
+    margin: 10px 0;
+}
+.gamebtn {
+    color: var(--text);
+    background-color: var(--accent);
+    width:100%;
+    border: none;
+    border-radius: 8px;
+    padding: 10px; 
+    cursor: pointer;
+}
+
+.search-container {
+    position: relative;
+    margin: 15px;
+}
+
+#search {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px 16px 12px 45px;
+
+    background: var(--card);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-family: var(--font);
+
+    outline: none;
+
+    transition: border .2s ease, box-shadow .2s ease;
+}
+
+#search::placeholder {
+    color: var(--text);
+    opacity: .5;
+}
+
+#search:focus {
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px rgba(45, 126, 247, .15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 20px;
+    height: 20px;
+
+    color: var(--text);
+    opacity: .6;
+}
+
+#user {
+    padding: 25px 15px 10px;
+}
+
+.header {
+    color: var(--text);
+    font-size: 28px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text);
+    opacity: .6;
+
+    margin-top: 8px;
+    margin-bottom: 0;
+
+    font-size: 15px;
+}
+.header::after {
+    content: "";
+    display: block;
+
+    width: 40px;
+    height: 4px;
+
+    background: var(--accent);
+    border-radius: 10px;
+
+    margin-top: 8px;
+}

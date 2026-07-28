@@ -1,0 +1,9 @@
+[
+    {
+        "id": "flappybird",
+        "name": "Flappy Bird",
+        "image": "/assets/flappybird.jpg",
+        "path": "games/flappybird/index.html",
+        "description": "Tap to make the bird flap, dodge the tubes!"
+    }
+]

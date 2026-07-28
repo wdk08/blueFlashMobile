@@ -1,0 +1,90 @@
+@import "/root.css";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+}
+
+#backBtn {
+    margin: 20px;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.container {
+    width: min(500px, 92%);
+    margin: 0 auto 40px;
+}
+
+#gameImg {
+    width: 100%;
+    border-radius: 18px;
+    display: block;
+}
+
+#gameName {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+#playBtn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: var(--accent);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .15s ease;
+}
+
+#playBtn:active {
+    transform: scale(.98);
+}
+
+.info {
+    margin-top: 30px;
+}
+
+.info h2 {
+    margin-bottom: 12px;
+}
+
+.info p {
+    line-height: 1.6;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label {
+    font-weight: 600;
+}

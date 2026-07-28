@@ -1,0 +1,10 @@
+@import url('https://googleapis.com');
+
+:root {
+    --bg: #ffffff;
+    --card: #f4f4f4;
+    --text: #111111;
+    --accent: #2d7ef7;
+    --border: #dddddd;
+    --font: "Rubik", sans-serif;
+}
