@@ -316,9 +316,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-canvas.addEventListener("click", jump);
-
-canvas.addEventListener("touchstart", jump);
+canvas.addEventListener("pointerdown", jump);
 
 
 // Start button
