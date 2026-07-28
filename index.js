@@ -5,7 +5,7 @@ async function initApp() {
 
     try {
 
-        const response = await fetch('/JSON/games.json');
+        const response = await fetch('./JSON/games.json');
 
         if (!response.ok) {
             throw new Error("Failed to load games");
