@@ -2,7 +2,7 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const birdImg = new Image();
 const highScoreText = document.getElementById("highScore");
-let canStartG = 3;
+let canStartG = true;
 
 birdImg.src = "assets/bird.png";
 const pipeTopImg = new Image();
@@ -59,20 +59,11 @@ function startGame() {
     gameLoop();
 }
 
-function canStartGame() {
-    if (canStartG == 0) {
-        return "yes";
-    } else {
-        return "no";
-    }
-}
-
-
 // Bird jump
 function jump() {
-    if (canStartGame() == "yes") {
-        return;
-    }
+  if (canStartG) {
+    return;
+  }
 
 
     if (!gameRunning) {
@@ -246,7 +237,7 @@ function checkCollision() {
         bird.y <= 0 ||
         bird.y + bird.height >= canvas.height
     ) {
-
+        canStartG = false;
         endGame();
 
     }
@@ -282,12 +273,6 @@ function checkCollision() {
 
 }
 
-function allowstart() {
-    setTimeout(() => {
-        canStartG = 0;
-    }, 3000)
-}
-
 
 // End game
 function endGame() {
@@ -295,14 +280,14 @@ function endGame() {
     if (gameOver) return;
 
     gameRunning = false;
-    canStartG = 3;
     gameOver = true;
+    document.getElementById("tapText").textContent = "Tap to Restart";
+    document.getElementById("tapText").style.display = "block";
 
     setTimeout(() => {
-        allowstart();
-        document.getElementById("tapText").textContent = "Tap to Restart";
-        document.getElementById("tapText").style.display = "block";
-    }, 500);
+        canStartG = true;
+
+    }, 300);
 
 }
 
