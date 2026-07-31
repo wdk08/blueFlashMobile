@@ -232,6 +232,8 @@ h1 {
 
     background: rgba(250,248,239,.95);
 
+    border: solid 1px var(--border);
+
     width: 300px;
 
     padding: 30px;
@@ -251,6 +253,18 @@ h1 {
 
     font-size:32px;
 
+}
+
+#message button {
+        border:none;
+    border-radius:10px;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-size:16px;
+    font-weight:bold;
 }
 
 

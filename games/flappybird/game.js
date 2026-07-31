@@ -14,7 +14,6 @@ const pipeBottomImg = new Image();
 pipeBottomImg.src = "assets/pipebottom.png";
 
 const scoreText = document.getElementById("score");
-const startBtn = document.getElementById("startBtn");
 
 canvas.width = 400;
 canvas.height = 600;
@@ -49,12 +48,11 @@ function startGame() {
     pipes = [];
 
     score = 0;
-    highScoreText.textContent = `Best: ${highScore}`;
 
     gameRunning = true;
     gameOver = false;
 
-    startBtn.style.display = "none";
+    document.getElementById("tapText").style.display = "none";
 
     cancelAnimationFrame(animationId);
     gameLoop();
@@ -64,7 +62,12 @@ function startGame() {
 // Bird jump
 function jump() {
 
-    if (!gameRunning) return;
+    if (!gameRunning) {
+
+        startGame();
+        return;
+
+    }
 
     bird.velocity = jumpPower;
 
@@ -277,11 +280,10 @@ function endGame() {
     gameRunning = false;
     gameOver = true;
 
-    startBtn.textContent = "Restart";
-
     setTimeout(() => {
-        startBtn.style.display = "block";
-    }, 1000);
+        document.getElementById("tapText").textContent = "Tap to Restart";
+        document.getElementById("tapText").style.display = "block";
+    }, 500);
 
 }
 
@@ -321,10 +323,6 @@ canvas.addEventListener("pointerdown", jump);
 
 // Start button
 
-startBtn.addEventListener(
-    "click",
-    startGame
-);
 const homeBtn = document.getElementById("homeBtn");
 
 homeBtn.addEventListener("click", () => {

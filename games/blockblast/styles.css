@@ -1,0 +1,329 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #282c34;
+  border-radius: 50px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  width: 90vw;
+  max-width: 600px;
+  z-index: 100;  /* Ensure it stays on top of the background */
+}
+
+
+#game:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#score {
+    font-size: 32px; /* Larger score */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(8, 10vw);
+    grid-template-rows: repeat(8, 10vw);
+    gap: 5px;
+    background-color: #333;
+    border-radius: 15px; /* Rounded corners for grid */
+    padding: 5px;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    background-color: #444;
+    transition: background-color 0.2s, transform 0.2s ease-in-out;
+    border: 1px solid #555;
+    border-radius: 8px;  /* Make the cells rounded for a softer look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
+}
+
+/* Highlight with soft, bubbly glow */
+.highlight {
+    background-color: rgba(255, 255, 255, 0.6); /* Light white with some transparency */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Soft white glow */
+    transform: scale(1.1); /* Slightly enlarge to make it pop */
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s ease-out;
+}
+
+.shape-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 5vw);
+    grid-template-rows: repeat(4, 5vw);
+    margin-bottom: 10px;
+}
+
+.shape-preview .cell {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #777;
+    border-radius: 5px; /* Rounded corners for shape preview */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+}
+
+.shape {
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 10px; /* Rounded corners for shapes */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Soft shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.shape:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Stronger shadow on hover */
+}
+
+#end-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+   }
+
+#end-message {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* Soft text shadow */
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 1vw 2vw;
+    font-size: 2vw;
+    margin: 4px 2px;
+    border-radius: 25px; /* Rounder buttons */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Button shadow */
+}
+
+button:active {
+    transform: scale(0.95); /* Slight press effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Reduced shadow when active */
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+    #grid {
+        grid-template-columns: repeat(8, 40px);
+        grid-template-rows: repeat(8, 40px);
+    }
+
+    .shape-preview {
+        grid-template-columns: repeat(4, 20px);
+        grid-template-rows: repeat(4, 20px);
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+#shape-selection {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.temp-highlight {
+    background-color: #9B1B30;
+    border: 4px solid #FF4500;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.6);
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full viewport height */
+  width: 100vw;  /* Full viewport width */
+  display: flex;  /* Flexbox layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+
+section {
+  position: absolute;         /* Position the section absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;                /* Full viewport width */
+  height: 100vh;              /* Full viewport height */
+  background: linear-gradient(135deg, #4779f7, #9b59b6); /* Gradient background */
+  overflow: hidden;           /* Hide any overflowing elements */
+}
+
+
+h1 {
+  color: white;
+  text-shadow: -1px -1px 1px black;
+  font-family: 'Dosis', sans-serif;
+  text-transform: uppercase;
+  font-size: 250%;
+  position: absolute;
+  top: 20%;
+  letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh;
+  background: url(https://i.imgur.com/DLD3N2t.png);
+  background-size: 100vw 20vh;
+}
+
+.wave1 {
+  animation: animate 20s linear infinite;
+  z-index: 15;
+  opacity: 0.9;
+  animation-delay: 0s;
+}
+
+.wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 10;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+.wave3 {
+  animation: animate 10s linear infinite;
+  z-index: 5;
+  opacity: 0.4;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+.wave4 {
+  animation: animate2 5s linear infinite;
+  z-index: 1;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 100vw;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -100vw;
+  }
+}
+
+/* Floating small dots (particles) */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicking through */
+}
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float 10s linear infinite;
+}
+
+.particle:nth-child(odd) {
+  animation-duration: 12s;
+}
+
+.particle:nth-child(even) {
+  animation-duration: 14s;
+}
+
+/* Keyframe for floating particles */
+@keyframes float {
+  0% {
+    left: -5px;
+    transform: translateY(0); /* Start from the left, at the same vertical position */
+    opacity: 0.7;
+  }
+  100% {
+    left: 100vw; /* Move across the screen */
+    transform: translateY(-30px); /* Slight upward drift */
+    opacity: 0.3;
+  }
+}
+
+/* Randomize particle positions and delays */
+.particle:nth-child(1) { top: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 30%; animation-delay: 2s; }
+.particle:nth-child(3) { top: 40%; animation-delay: 3s; }
+.particle:nth-child(4) { top: 50%; animation-delay: 1s; }
+.particle:nth-child(5) { top: 60%; animation-delay: 5s; }
+.particle:nth-child(6) { top: 70%; animation-delay: 7s; }
+.particle:nth-child(7) { top: 80%; animation-delay: 4s; }
+.particle:nth-child(8) { top: 90%; animation-delay: 6s; }
+.particle:nth-child(9) { top: 50%; animation-delay: 8s; }
+.particle:nth-child(10) { top: 20%; animation-delay: 9s; }
+.particle:nth-child(11) { top: 40%; animation-delay: 10s; }
+.particle:nth-child(12) { top: 60%; animation-delay: 11s; }
+.particle:nth-child(13) { top: 30%; animation-delay: 12s; }
+.particle:nth-child(14) { top: 70%; animation-delay: 13s; }
+.particle:nth-child(15) { top: 90%; animation-delay: 14s; }
+.particle:nth-child(16) { top: 50%; animation-delay: 15s; }
+.particle:nth-child(17) { top: 10%; animation-delay: 16s; }
+.particle:nth-child(18) { top: 80%; animation-delay: 17s; }
+.particle:nth-child(19) { top: 30%; animation-delay: 18s; }
+.particle:nth-child(20) { top: 70%; animation-delay: 19s; }
+/* Add more particles if needed */
+
+
+
+
+

@@ -104,3 +104,11 @@ const homeBtn = document.getElementById("homeBtn");
 homeBtn.addEventListener("click", () => {
     window.location.href = "../../index.html";
 });
+
+document.querySelectorAll("input, select").forEach(input => {
+    input.addEventListener("focus", () => {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 100);
+    });
+});

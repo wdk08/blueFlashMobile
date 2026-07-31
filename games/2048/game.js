@@ -14,6 +14,42 @@ let best = Number(localStorage.getItem("2048Best")) || 0;
 
 
 bestText.textContent = best;
+
+
+function saveGame() {
+    localStorage.setItem("2048Game", JSON.stringify({
+        grid: grid,
+        score: score,
+        gameEnded: gameEnded
+    }));
+}
+
+
+function loadGame() {
+
+    let saved = localStorage.getItem("2048Game");
+
+    if (saved) {
+
+        let data = JSON.parse(saved);
+
+        grid = data.grid;
+        score = data.score;
+        gameEnded = data.gameEnded;
+
+        if (gameEnded) {
+            messageText.textContent = "Game Over 😢";
+            message.classList.remove("hidden");
+        }
+
+        update();
+
+        return true;
+    }
+
+    return false;
+
+}
 function checkGameStatus() {
 
     // Win condition
@@ -65,8 +101,14 @@ function checkGameStatus() {
 }
 
 function startGame() {
+
+    if (loadGame()) {
+        return;
+    }
+
     gameEnded = false;
     message.classList.add("hidden");
+
     grid = Array(4)
         .fill()
         .map(() => Array(4).fill(0));
@@ -293,6 +335,8 @@ function move(direction) {
 
         addTile();
 
+        saveGame();
+
     }
 
 
@@ -367,3 +411,7 @@ document.getElementById("homeBtn").onclick = () => {
 
 
 startGame();
+
+window.addEventListener("beforeunload", () => {
+    saveGame();
+});
