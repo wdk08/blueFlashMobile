@@ -1,7 +1,10 @@
 const board = document.getElementById("board");
 const scoreText = document.getElementById("score");
 const bestText = document.getElementById("best");
+const message = document.getElementById("message");
+const messageText = document.getElementById("messageText");
 
+let gameEnded = false;
 const restart = document.getElementById("restart");
 
 let grid;
@@ -11,10 +14,59 @@ let best = Number(localStorage.getItem("2048Best")) || 0;
 
 
 bestText.textContent = best;
+function checkGameStatus() {
 
+    // Win condition
+    for (let row of grid) {
+
+        if (row.includes(2048)) {
+
+            gameEnded = true;
+
+            messageText.textContent = "You Win! 🎉";
+
+            message.classList.remove("hidden");
+
+            return;
+
+        }
+
+    }
+
+
+    // Lose condition
+
+    for (let r = 0; r < 4; r++) {
+
+        for (let c = 0; c < 4; c++) {
+
+            if (grid[r][c] === 0)
+                return;
+
+
+            if (c < 3 && grid[r][c] === grid[r][c + 1])
+                return;
+
+
+            if (r < 3 && grid[r][c] === grid[r + 1][c])
+                return;
+
+        }
+
+    }
+
+
+    gameEnded = true;
+
+    messageText.textContent = "Game Over 😢";
+
+    message.classList.remove("hidden");
+
+}
 
 function startGame() {
-
+    gameEnded = false;
+    message.classList.add("hidden");
     grid = Array(4)
         .fill()
         .map(() => Array(4).fill(0));
@@ -162,7 +214,7 @@ function updateScore() {
 }
 
 function move(direction) {
-
+    if (gameEnded) return;
     let old = JSON.stringify(grid);
 
 
@@ -240,6 +292,7 @@ function move(direction) {
 
 
     update();
+    checkGameStatus();
 
 }
 
