@@ -70,12 +70,14 @@ function canStartGame() {
 
 // Bird jump
 function jump() {
+    if (canStartGame() == "yes") {
+        return;
+    }
+
 
     if (!gameRunning) {
-        if (canStartGame() == "yes") {
         startGame();
         return;
-        }
     }
 
     bird.velocity = jumpPower;
