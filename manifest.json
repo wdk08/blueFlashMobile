@@ -1,6 +1,6 @@
 {
     "name": "Blue Flash Mobile",
-    "short_name": "BlueFlash",
+    "short_name": "Blue Flash Mobile",
     "start_url": "/blueFlashMobile/",
     "display": "standalone",
     "background_color": "#ffffff",

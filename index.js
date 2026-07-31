@@ -91,20 +91,75 @@ function getGame(id) {
 
 search.addEventListener("input", () => {
 
-    const query = search.value.toLowerCase();
+    const query = search.value
+        .toLowerCase()
+        .trim();
 
-    const filteredGames = games.filter(game =>
-        game.name.toLowerCase().includes(query)
-    );
+    const gameBox = document.getElementById("games");
 
-    document.getElementById("games").innerHTML = "";
+    gameBox.innerHTML = "";
+
+    if (!query) {
+        addGames();
+        return;
+    }
+
+
+    const filteredGames = games
+        .map(game => {
+
+            const name = game.name.toLowerCase();
+
+            let score = 0;
+
+
+            // Exact match
+            if (name === query) {
+                score += 100;
+            }
+
+
+            // Starts with search
+            if (name.startsWith(query)) {
+                score += 50;
+            }
+
+
+            // Whole word match
+            if (name.split(" ").includes(query)) {
+                score += 30;
+            }
+
+
+            // Contains search
+            if (name.includes(query)) {
+                score += 10;
+            }
+
+
+            return {
+                game,
+                score
+            };
+
+        })
+        .filter(item => item.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .map(item => item.game);
+
+
 
     filteredGames.forEach(game => {
-        document.getElementById("games")
-            .insertAdjacentHTML("beforeend", createGameCard(game));
+
+        gameBox.insertAdjacentHTML(
+            "beforeend",
+            createGameCard(game)
+        );
+
     });
 
 });
+
 if ("serviceWorker" in navigator) {
 
     navigator.serviceWorker.register("./service-worker.js");
