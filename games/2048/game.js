@@ -159,6 +159,11 @@ function slide(row) {
 
             newRow[i] *= 2;
 
+            // Stop at 2048
+            if (newRow[i] > 2048) {
+                newRow[i] = 2048;
+            }
+
             newRow.splice(i + 1, 1);
 
         }
@@ -291,9 +296,8 @@ function move(direction) {
     }
 
 
-    update();
     checkGameStatus();
-
+    update();
 }
 
 
