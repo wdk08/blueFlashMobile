@@ -2,6 +2,7 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const birdImg = new Image();
 const highScoreText = document.getElementById("highScore");
+let canRestart = false;
 
 birdImg.src = "assets/bird.png";
 const pipeTopImg = new Image();
@@ -64,7 +65,10 @@ function jump() {
 
     if (!gameRunning) {
 
-        startGame();
+        if (canRestart) {
+            startGame();
+        }
+
         return;
 
     }
@@ -72,7 +76,6 @@ function jump() {
     bird.velocity = jumpPower;
 
 }
-
 
 // Create pipes
 function createPipe() {
@@ -279,14 +282,16 @@ function endGame() {
 
     gameRunning = false;
     gameOver = true;
+    canRestart = false;
 
     setTimeout(() => {
         document.getElementById("tapText").textContent = "Tap to Restart";
         document.getElementById("tapText").style.display = "block";
-    }, 500);
+
+        canRestart = true;
+    }, 3000);
 
 }
-
 
 // Main loop
 function gameLoop() {
