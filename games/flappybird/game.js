@@ -61,7 +61,7 @@ function startGame() {
 
 // Bird jump
 function jump() {
-  if (canStartG) {
+  if (!canStartG) {
     return;
   }
 
