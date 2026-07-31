@@ -2,7 +2,7 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const birdImg = new Image();
 const highScoreText = document.getElementById("highScore");
-let canRestart = false;
+let canRestart = true;
 
 birdImg.src = "assets/bird.png";
 const pipeTopImg = new Image();
