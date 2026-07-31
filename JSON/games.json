@@ -12,5 +12,12 @@
         "image": "assets/imposter.jpg",
         "path": "games/imposter/index.html",
         "description": "Choose the number of players, the number of imposters, the category, and play!"
+    },
+    {
+        "id": "2048",
+        "name": "2048",
+        "image": "assets/2048.jpg",
+        "path": "games/2048/index.html",
+        "description": "Merge number blocks to get bigger numbers. Try to get to 2048"
     }
 ]
