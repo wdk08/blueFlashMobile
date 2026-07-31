@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Imposter</title>
+  <link rel="stylesheet" href="imposter.css">
+
+</head>
+
+<body>
+  <div class="top-bar">
+    <button id="homeBtn">
+      ← Home
+    </button>
+  </div>
+  <div class="app">
+
+    <!-- SETUP -->
+    <div id="setup" class="card">
+      <h1>Imposter</h1>
+      <input type="number" id="players" placeholder="Number of players" min="3">
+      <input type="number" id="imposters" placeholder="Number of imposters" min="1">
+      <select id="category"></select>
+      <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- PASS -->
+    <div id="pass" class="card hidden">
+      <div class="player-num">Player <span id="playerNum"></span></div>
+      <p>Tap when you're ready to see your role</p>
+      <button onclick="showRole()">Reveal Role</button>
+    </div>
+
+    <!-- REVEAL -->
+    <div id="reveal" class="card hidden">
+      <div id="categoryText"></div>
+      <div id="roleText" class="role"></div>
+      <div id="wordText" class="word"></div>
+      <button class="secondary" onclick="nextPlayer()">Hide & Pass</button>
+    </div>
+
+    <!-- END -->
+    <!-- END -->
+    <div id="end" class="card hidden">
+      <h2>All roles assigned</h2>
+      <p>Hand the phone back and start playing 👀</p>
+      <button onclick="resetGame()">Play Again</button>
+    </div>
+
+
+  </div>
+
+  <script src="imposter.js"></script>
+</body>
+
+</html>

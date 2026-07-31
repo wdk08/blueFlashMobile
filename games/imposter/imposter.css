@@ -1,0 +1,328 @@
+@import "../../root.css";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at top, #26304a, #090b12 70%);
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+}
+
+
+/* Center the game card vertically */
+.app {
+    width: 100%;
+    max-width: 400px;
+
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+/* SAME HOME BUTTON AS FLAPPY */
+
+.top-bar {
+    width: 100%;
+    max-width: 400px;
+
+    padding: 15px;
+}
+
+#homeBtn {
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--accent);
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+
+    transition: transform .15s ease;
+}
+
+#homeBtn:hover {
+    transform: scale(1.05);
+}
+
+/* CARD */
+
+.card {
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1d2333,
+            #111522
+        );
+
+    border-radius: 25px;
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.5),
+        inset 0 0 0 2px rgba(255,255,255,.05);
+
+    animation: pop .25s ease;
+
+}
+
+
+@keyframes pop {
+
+    from {
+        transform: scale(.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+
+h1 {
+
+    font-size: 42px;
+
+    margin-bottom: 30px;
+
+    color: #e74c3c;
+
+    text-shadow:
+        0 3px 0 #7b241c;
+
+}
+
+
+h2 {
+
+    color: #e74c3c;
+
+}
+
+
+/* INPUTS */
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin: 8px 0;
+
+    border-radius: 14px;
+
+    border: none;
+
+    outline: none;
+
+    background: #090b12;
+
+    color: white;
+
+    font-size: 16px;
+
+    border: 2px solid #30394f;
+
+}
+
+
+input:focus,
+select:focus {
+
+    border-color: #e74c3c;
+
+}
+
+
+
+/* BUTTONS */
+
+button {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: #e74c3c;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 #922b21;
+
+    transition: .15s;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+button:active {
+
+    transform: translateY(3px);
+
+    box-shadow:
+        0 2px 0 #922b21;
+
+}
+
+
+
+/* PASS SCREEN */
+
+.player-num {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #5dade2;
+
+    margin-bottom: 20px;
+
+}
+
+
+p {
+
+    color: #ccc;
+
+    font-size: 18px;
+
+}
+
+
+
+/* ROLE REVEAL */
+
+#categoryText {
+
+    color: #5dade2;
+
+    font-weight: bold;
+
+    font-size: 20px;
+
+}
+
+
+.role {
+
+    margin-top: 25px;
+
+    font-size: 40px;
+
+    font-weight: bold;
+
+}
+
+
+.word {
+
+    margin-top: 15px;
+
+    font-size: 28px;
+
+    color: #f7dc6f;
+
+    font-weight: bold;
+
+}
+
+
+
+/* SECONDARY BUTTON */
+
+.secondary {
+
+    background: #34495e;
+
+    box-shadow:
+        0 5px 0 #1b2631;
+
+}
+
+
+
+/* HIDDEN */
+
+.hidden {
+
+    display: none;
+
+}
+
+/* Keep Home button separate */
+#homeBtn {
+    width: auto;
+    margin-top: 0;
+
+    padding: 10px 16px;
+
+    background: var(--accent);
+
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+
+.top-bar {
+    width: 100%;
+    max-width: 400px;
+
+    padding: 15px;
+
+    display: flex;
+    justify-content: flex-start;
+}
+
