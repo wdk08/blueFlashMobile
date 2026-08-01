@@ -1,0 +1,71 @@
+export const spriteMap = {
+  gameUI: {
+    scoreBg: { sx: 866, sy: 242, sw: 71, sh: 259 },
+    bestScoreBg: { sx: 944, sy: 321, sw: 259, sh: 71 },
+    optionsBtn: { sx: 1196, sy: 425, sw: 71, sh: 73 },
+    trophy: { sx: 1284, sy: 427, sw: 55, sh: 61 },
+    startBtn: { sx: 8, sy: 493, sw: 115, sh: 447 },
+    playIcon: { sx: 33, sy: 692, sw: 68, sh: 68 },
+    redBtn: { sx: 31, sy: 961, sw: 125, sh: 349 },
+    textGood: { sx: 940, sy: 245, sw: 298, sh: 73 },
+    textGreat: { sx: 1034, sy: 150, sw: 312, sh: 73 },
+    textAmazing: { sx: 531, sy: 125, sw: 460, sh: 92 },
+    textPerfect: { sx: 1077, sy: 18, sw: 395, sh: 92 },
+  },
+
+  optionsUI: {
+    closeBtn: { sx: 401, sy: 665, sw: 74, sh: 72 },
+    soundOffBtn: { sx: 1066, sy: 403, sw: 115, sh: 75 },
+    soundOnBtn: { sx: 1245, sy: 249, sw: 115, sh: 75 },
+    replayBtn: { sx: 1214, sy: 337, sw: 115, sh: 75 },
+    resetBtn: { sx: 174, sy: 184, sw: 168, sh: 75 },
+  },
+
+  gameOverUI: {
+    gameOverText: { sx: 90, sy: 1099, sw: 59, sh: 424 },
+    scoreText: { sx: 451, sy: 1283, sw: 34, sh: 122 },
+    bestText: { sx: 644, sy: 1778, sw: 94, sh: 33 },
+    newBestTrophy: { sx: 131, sy: 489, sw: 259, sh: 291 },
+    shareBtn: { sx: 186, sy: 6, sw: 82, sh: 168 },
+  },
+
+  board: {
+    tile: { sx: 340, sy: 105, sw: 65, sh: 65 },
+    tileOutline: { sx: 277, sy: 109, sw: 58, sh: 58 },
+    bg: { sx: 1342, sy: 388, sw: 65, sh: 65 },
+  },
+
+  jewelParticles: {
+    cyan: { sx: 29, sy: 45, sw: 23, sh: 23 },
+    blue: { sx: 1, sy: 43, sw: 23, sh: 25 },
+    green: { sx: 57, sy: 6, sw: 23, sh: 25 },
+    yellow: { sx: 29, sy: 6, sw: 23, sh: 25 },
+    red: { sx: 2, sy: 7, sw: 23, sh: 23 },
+    purple: { sx: 57, sy: 44, sw: 23, sh: 25 },
+    pink: { sx: 86, sy: 6, sw: 23, sh: 25 },
+  },
+
+  blocks: {
+    cyan: { sx: 170, sy: 285, sw: 97, sh: 97 },
+    blue: { sx: 268, sy: 367, sw: 97, sh: 97 },
+    green: { sx: 366, sy: 367, sw: 97, sh: 97 },
+    yellow: { sx: 397, sy: 465, sw: 97, sh: 97 },
+    red: { sx: 397, sy: 563, sw: 97, sh: 97 },
+    purple: { sx: 350, sy: 269, sw: 97, sh: 97 },
+    pink: { sx: 170, sy: 383, sw: 97, sh: 97 },
+    silver: { sx: 350, sy: 171, sw: 97, sh: 97 },
+  },
+
+  digits: {
+    0: { sx: 3, sy: 1, sw: 40, sh: 52 },
+    1: { sx: 58, sy: 1, sw: 20, sh: 52 },
+    2: { sx: 96, sy: 1, sw: 40, sh: 52 },
+    3: { sx: 143, sy: 1, sw: 40, sh: 52 },
+    4: { sx: 187, sy: 1, sw: 40, sh: 52 },
+    5: { sx: 235, sy: 1, sw: 40, sh: 52 },
+    6: { sx: 279, sy: 1, sw: 40, sh: 52 },
+    7: { sx: 327, sy: 1, sw: 40, sh: 52 },
+    8: { sx: 372, sy: 1, sw: 40, sh: 52 },
+    9: { sx: 417, sy: 1, sw: 40, sh: 52 },
+  },
+};

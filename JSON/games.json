@@ -19,5 +19,12 @@
         "image": "assets/2048.jpg",
         "path": "games/2048/index.html",
         "description": "Merge number blocks to get bigger numbers. Try to get to 2048"
+    },
+    {
+        "id": "blockpuzzlegem",
+        "name": "Block Puzzle Gem",
+        "image": "assets/blockpuzzlegem.png",
+        "path": "games/blockpuzzlegem/index.html",
+        "description": "Match blocks to clear the board!"
     }
 ]

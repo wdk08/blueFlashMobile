@@ -1,0 +1,57 @@
+@import "../../../root.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Force the container to lock to exactly the viewport height */
+  background-color: #000;
+  touch-action: none;
+  overflow: hidden;
+}
+
+.top-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    box-sizing: border-box; /* Crucial: stops padding from breaking height calculations */
+    background: url(../images/plant_top2.png) no-repeat bottom center;
+    background-size: 100% auto;
+    /* Fixed: This tells the top-bar to stretch and fill all available space down to the canvas */
+    flex-grow: 1; 
+}
+
+canvas {
+  background: linear-gradient(
+    180deg,
+    #4357ad 0%,
+    #465bb0 20%,
+    #4c65b7 40%,
+    #506aba 60%,
+    #536ebd 80%,
+    #5672c0 100%
+  );
+  width: 100%;
+  touch-action: none;
+  display: block;
+
+  /* Fixed: Removed position: fixed and height: 100vh */
+  /* Keep your original canvas height declaration here (e.g., height: 400px; or keep it in your JS) */
+}
+
+#homeBtn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    transition: transform .15s ease;
+}
+#homeBtn:hover {
+    transform: scale(1.05);
+}
