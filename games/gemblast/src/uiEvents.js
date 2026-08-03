@@ -3,6 +3,7 @@ import { layout } from "./layout.js";
 import { spriteMap } from "./spriteMap.js";
 import { createHand } from "./hand.js";
 import { playSound } from "./audio.js";
+import { loadGame, clearSave } from "./save.js";
 
 const createButton = (onClick, config = {}) => ({
   x: 0,
@@ -15,7 +16,13 @@ const createButton = (onClick, config = {}) => ({
 
 const BUTTONS = {
   start: createButton(() => {
-    gameState.startAnim();
+    const loaded = loadGame();
+
+    if (loaded) {
+      gameState.startGame();
+    } else {
+      gameState.startAnim();
+    }
   }),
 
   options: createButton(() => {
@@ -32,6 +39,7 @@ const BUTTONS = {
   }),
 
   optionsReplay: createButton(() => {
+    clearSave();
     gameState.reset();
     createHand();
   }),
@@ -46,7 +54,7 @@ const BUTTONS = {
   }),
 
   newGame: createButton(() => {
-    console.log("New game clicked");
+    clearSave();
     gameState.reset();
     createHand();
   }),

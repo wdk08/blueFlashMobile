@@ -110,12 +110,6 @@ function initGame() {
     initLayout(img);
     initUIEvents();
     intiGrid(img.gridOutline);
-    const loaded = loadGame();
-
-    if (!loaded) {
-      gameState.startGame();
-    }
-
     initHand();
     window.addEventListener("resize", initCanvas);
     gameLoop();
