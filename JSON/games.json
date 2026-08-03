@@ -23,8 +23,8 @@
     {
         "id": "blockpuzzlegem",
         "name": "Block Puzzle Gem",
-        "image": "assets/blockpuzzlegem.png",
-        "path": "games/blockpuzzlegem/index.html",
+        "image": "assets/gemblast.png",
+        "path": "games/gemblast/index.html",
         "description": "Match blocks to clear the board!"
     }
 ]
