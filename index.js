@@ -15,7 +15,7 @@ async function initApp() {
 
         addGames();
 
-    } catch(error) {
+    } catch (error) {
 
         console.error("Error loading games:", error);
 
@@ -162,6 +162,8 @@ search.addEventListener("input", () => {
 
 if ("serviceWorker" in navigator) {
 
-    navigator.serviceWorker.register("./service-worker.js");
-
+    navigator.serviceWorker.register("./service-worker.js")
+        .then(reg => {
+            reg.update();
+        });
 }
