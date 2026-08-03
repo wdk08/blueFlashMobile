@@ -90,7 +90,7 @@ function isValidPlacement(grid, template, startRow, startCol) {
       }
     }
   }
-
+  console.log("Draw grid:", gridData);
   return true;
 }
 function countBlocksInTemplate(template) {

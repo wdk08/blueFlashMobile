@@ -28,6 +28,8 @@ function loadGame() {
   gameState.highScore = data.highScore;
   gameState.blocks = data.blocks;
 
+console.log("Loaded grid:", gameState.gridData);
+
   return true;
 }
 
