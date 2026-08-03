@@ -18,7 +18,12 @@ function loadGame() {
 
   const data = JSON.parse(saved);
 
-  gameState.gridData = data.gridData;
+  gameState.gridData.splice(
+    0,
+    gameState.gridData.length,
+    ...data.gridData.map(row => [...row])
+  );
+
   gameState.score = data.score;
   gameState.highScore = data.highScore;
   gameState.blocks = data.blocks;

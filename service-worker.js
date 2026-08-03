@@ -1,4 +1,4 @@
-const CACHE_NAME = "blueflash-v4";
+const CACHE_NAME = "blueflash-v5";
 
 self.addEventListener("install", event => {
 
