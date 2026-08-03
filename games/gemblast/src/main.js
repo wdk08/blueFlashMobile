@@ -12,6 +12,8 @@ import { drawOptionsDialog } from "./options.js";
 import { updateAndDrawParticles } from "./particles.js";
 import { updateAndDrawFloatingTexts } from "./floatingText.js";
 import { spriteMap } from "./spriteMap.js";
+import { loadGame } from "./save.js";
+
 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
@@ -87,7 +89,7 @@ function gameLoop() {
     updateAndDrawFloatingTexts(ctx);
     updateSilvering();
 
-    if(gameState.isOptions()) {
+    if (gameState.isOptions()) {
       drawOptionsDialog(ctx)
     }
 
@@ -95,7 +97,7 @@ function gameLoop() {
       drawGameOverScreen(ctx);
     }
   }
-  
+
   requestAnimationFrame(gameLoop);
 }
 
@@ -108,6 +110,12 @@ function initGame() {
     initLayout(img);
     initUIEvents();
     intiGrid(img.gridOutline);
+    const loaded = loadGame();
+
+    if (!loaded) {
+      gameState.startGame();
+    }
+
     initHand();
     window.addEventListener("resize", initCanvas);
     gameLoop();

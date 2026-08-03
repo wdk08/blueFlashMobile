@@ -6,6 +6,7 @@ import { applyMoveScoring } from "./score.js";
 import { spawnJewels } from "./particles.js";
 import { addFloatingScore, addFloatingComboText } from "./floatingText.js";
 import { playSound } from "./audio.js";
+import { saveGame } from "./save.js";
 
 const GAME_WIDTH = gameState.GAME_WIDTH;
 const GRID_SIZE = gameState.GRID_SIZE;
@@ -133,6 +134,8 @@ function placeOnGrid(template, startRow, startCol, color) {
   if (linesCleared > 0) {
     addFloatingComboText(linesCleared, scoreResult.comboMultiplier);
   }
+
+  saveGame();
 }
 
 function clearFromGrid(grid) {
