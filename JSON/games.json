@@ -21,8 +21,8 @@
         "description": "Merge number blocks to get bigger numbers. Try to get to 2048"
     },
     {
-        "id": "blockpuzzlegem",
-        "name": "Block Puzzle Gem",
+        "id": "gemblast",
+        "name": "Gem blast",
         "image": "assets/gemblast.png",
         "path": "games/gemblast/index.html",
         "description": "Match blocks to clear the board!"
