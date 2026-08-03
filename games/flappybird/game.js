@@ -289,7 +289,7 @@ function endGame() {
         document.getElementById("tapText").style.display = "block";
 
         canRestart = true;
-    }, 3000);
+    }, 1500);
 
 }
 
