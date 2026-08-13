@@ -1,0 +1,133 @@
+@import "../../root.css";
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#previewCanvas {
+    width: min(90vw, 400px);
+    aspect-ratio: 1;
+    image-rendering: pixelated;
+    border-radius: 12px;
+    background: #111;
+    touch-action: none;
+    cursor: grab;
+}
+
+#canvasWrapper {
+    width: min(90vw, 400px);
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#previewCanvas {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+
+#gameContainer {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ff0000; /* Debugging border */
+}
+
+#cropContainer {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+#cropCanvas {
+    width: min(90vw, 400px);
+    aspect-ratio: 1 / 1;
+
+    max-width: 100%;
+
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    background: #111;
+
+    touch-action: none;
+    cursor: grab;
+        display: none;
+
+}
+
+#cropCanvas:active {
+    cursor: grabbing;
+}
+
+#cropButton {
+    width: min(90vw, 400px);
+    max-width: 100%;
+    height: 50px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: var(--accent);
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#cropButton:active {
+    transform: scale(0.98);
+}
+
+
+.top-bar {
+    width: 100%;
+    max-width: 400px;
+    flex-shrink: 0;
+    padding: 15px;
+}
+
+input,
+select {
+    transform: translateZ(0);
+}
+
+#homeBtn {
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--accent);
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+
+    transition: transform .15s ease;
+}
+
+#homeBtn:hover {
+    transform: scale(1.05);
+}

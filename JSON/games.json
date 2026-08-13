@@ -26,5 +26,12 @@
         "image": "assets/gemblast.png",
         "path": "games/gemblast/index.html",
         "description": "Match blocks to clear the board!"
+    },
+    {
+        "id": "snake",
+        "name": "Snake",
+        "image": "assets/snake.png",
+        "path": "games/snake/index.html",
+        "description": "Eat the apples to grow your snake, Swipe to change direction."
     }
 ]

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pixel Art</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <button id="homeBtn">
+            ← Home
+        </button>
+    </div>
+    <div id="gameContainer">
+        <div id="libraryScreen">
+
+            <button id="createButton">
+                Create Puzzle
+            </button>
+
+            <div id="puzzleLibrary"></div>
+
+        </div>
+
+        <div id="createScreen" hidden>
+
+            <input type="file" id="imageInput">
+            <div id="cropContainer">
+
+                <div id="canvasWrapper">
+                    <canvas id="previewCanvas"></canvas>
+                </div> <canvas id="cropCanvas"></canvas>
+
+                <label>
+                    Difficulty
+                    <input id="difficultySlider" type="range" min="8" max="128" value="32" step="8">
+                </label>
+
+                <span id="difficultyValue">32 x 32</span>
+
+                <button id="cropButton">
+                    Play
+                </button>
+            </div>
+
+
+        </div>
+        <div id="playingScreen" hidden>
+
+            <canvas id="gameCanvas"></canvas>
+            <div id="colorControls">
+                <button id="previousColors">◀</button>
+
+                <div id="colorPicker"></div>
+
+                <button id="nextColors">▶</button>
+            </div>
+        </div>
+
+        <script type="module" src="./js/game.js"></script>
+        <script type="module" src="./js/puzzle.js"></script>
+</body>
+
+</html>

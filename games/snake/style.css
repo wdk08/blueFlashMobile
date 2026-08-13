@@ -1,0 +1,140 @@
+@import "../../root.css";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #111;
+
+    font-family: Arial, sans-serif;
+
+    touch-action: none;
+    overflow: hidden;
+}
+
+.top-bar {
+    width: 100%;
+    max-width: 400px;
+
+    padding: 15px;
+
+    margin: 0 auto;
+}
+
+#homeBtn {
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--accent);
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+
+    transition: transform .15s ease;
+}
+
+#homeBtn:hover {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   GAME WRAPPER
+========================= */
+
+#gameWrapper {
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+#gameContainer {
+    position: relative;
+
+    width: 100%;
+    max-width: 400px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+    padding: 0 5px;
+
+    color: white;
+}
+
+#score {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#highScore {
+    font-size: 18px;
+    font-weight: bold;
+
+    opacity: .8;
+}
+
+#game {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    background: #111;
+
+    border: 3px solid #222;
+    border-radius: 10px;
+}
+
+#tapText {
+    position: absolute;
+
+    top: 55%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: white;
+
+    font-size: 26px;
+    font-weight: bold;
+
+    text-align: center;
+
+    white-space: pre-line;
+
+    text-shadow:
+        2px 2px 0 #000;
+
+    pointer-events: none;
+}
